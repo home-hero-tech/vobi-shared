@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+service Generic {
+    rpc addToRefurbish (AddToRefurbishRequest) returns (Void) {}
+    rpc addToLibrary (AddToLibraryRequest) returns (Void) {}
+}
+
+message AddToRefurbishRequest {
+    int32 id_company = 1;
+    int32 id_refurbish = 2;
+    int32 id_parent_level = 3;
+    string external_base_code = 4;
+    int32 id_parent = 5;
+    float fixed_bdi = 6;
+    bool is_template = 7;
+}
+
+message AddToLibraryRequest {
+    int32 id_company = 1;
+    string external_base_code = 2;
+}
+
+message Void {}

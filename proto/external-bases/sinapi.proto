@@ -1,0 +1,51 @@
+syntax = "proto3";
+
+import "generic.proto";
+
+service Sinapi {
+    rpc getAll (GetAllRequest) returns (GetAllResponse) {}
+    rpc getMonthsAvailable (Void) returns (GetSinapiMonthsAvailableResponse) {}
+}
+
+message GetAllRequest {
+    string state = 1;
+    string month_reference = 2;
+    string social_charges = 3;
+    string name_or_code = 4;
+    int32 type = 5;
+    int32 limit = 6;
+    int32 offset = 7;
+}
+
+message VobiUnits {
+    int32 id = 1;
+    string name = 2;
+}
+
+message SinapiItem {
+    string code = 1;
+    string name = 2;
+    string unit = 3;
+    int32 id_unit = 4;
+    string state = 5;
+    double price = 6;
+    string image = 7;
+    string month_reference = 8;
+    string social_charges = 9;
+    int32 type = 10;
+    string type_text = 11;
+    string external_base_code = 12;
+    VobiUnits units = 13;
+    string origin_price = 14;
+    string subtype = 15;
+}
+
+message GetAllResponse {
+    int32 count = 1;
+    repeated SinapiItem items = 2;
+}
+
+message GetSinapiMonthsAvailableResponse {
+    int32 count = 1;
+    repeated string items = 2;
+}

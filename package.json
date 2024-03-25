@@ -1,0 +1,29 @@
+{
+  "name": "vobi-shared",
+  "version": "1.0.0",
+  "description": "common resources used by our microsservices",
+  "files": [
+    "external-bases",
+    "common"
+  ],
+  "scripts": {
+    "compileExternalBaseProtoBuffer": "npx grpc_tools_node_protoc --js_out=import_style=commonjs:./external-bases/grpc --ts_out=./external-bases/grpc --grpc_out=grpc_js:./external-bases/grpc -I=./proto/external-bases ./proto/external-bases/*.proto"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/home-hero-tech/vobi-shared.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/home-hero-tech/vobi-shared/issues"
+  },
+  "homepage": "https://github.com/home-hero-tech/vobi-shared#readme",
+  "dependencies": {
+    "@grpc/grpc-js": "^1.10.3",
+    "google-protobuf": "^3.21.2"
+  },
+  "devDependencies": {
+    "grpc_tools_node_protoc_ts": "^5.3.3"
+  }
+}

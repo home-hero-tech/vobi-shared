@@ -1,0 +1,1 @@
+declare module 'vobi-shared/common/helper';
