@@ -124,8 +124,9 @@ proto.AddToRefurbishRequest.toObject = function(includeInstance, msg) {
     idParentLevel: jspb.Message.getFieldWithDefault(msg, 3, 0),
     externalBaseCode: jspb.Message.getFieldWithDefault(msg, 4, ""),
     idParent: jspb.Message.getFieldWithDefault(msg, 5, 0),
-    fixedBdi: jspb.Message.getFloatingPointFieldWithDefault(msg, 6, 0.0),
-    isTemplate: jspb.Message.getBooleanFieldWithDefault(msg, 7, false)
+    quantityParent: jspb.Message.getFloatingPointFieldWithDefault(msg, 6, 0.0),
+    fixedBdi: jspb.Message.getFloatingPointFieldWithDefault(msg, 7, 0.0),
+    isTemplate: jspb.Message.getBooleanFieldWithDefault(msg, 8, false)
   };
 
   if (includeInstance) {
@@ -184,9 +185,13 @@ proto.AddToRefurbishRequest.deserializeBinaryFromReader = function(msg, reader) 
       break;
     case 6:
       var value = /** @type {number} */ (reader.readFloat());
-      msg.setFixedBdi(value);
+      msg.setQuantityParent(value);
       break;
     case 7:
+      var value = /** @type {number} */ (reader.readFloat());
+      msg.setFixedBdi(value);
+      break;
+    case 8:
       var value = /** @type {boolean} */ (reader.readBool());
       msg.setIsTemplate(value);
       break;
@@ -254,17 +259,24 @@ proto.AddToRefurbishRequest.serializeBinaryToWriter = function(message, writer) 
       f
     );
   }
-  f = message.getFixedBdi();
+  f = message.getQuantityParent();
   if (f !== 0.0) {
     writer.writeFloat(
       6,
       f
     );
   }
+  f = message.getFixedBdi();
+  if (f !== 0.0) {
+    writer.writeFloat(
+      7,
+      f
+    );
+  }
   f = message.getIsTemplate();
   if (f) {
     writer.writeBool(
-      7,
+      8,
       f
     );
   }
@@ -362,10 +374,10 @@ proto.AddToRefurbishRequest.prototype.setIdParent = function(value) {
 
 
 /**
- * optional float fixed_bdi = 6;
+ * optional float quantity_parent = 6;
  * @return {number}
  */
-proto.AddToRefurbishRequest.prototype.getFixedBdi = function() {
+proto.AddToRefurbishRequest.prototype.getQuantityParent = function() {
   return /** @type {number} */ (jspb.Message.getFloatingPointFieldWithDefault(this, 6, 0.0));
 };
 
@@ -374,17 +386,35 @@ proto.AddToRefurbishRequest.prototype.getFixedBdi = function() {
  * @param {number} value
  * @return {!proto.AddToRefurbishRequest} returns this
  */
-proto.AddToRefurbishRequest.prototype.setFixedBdi = function(value) {
+proto.AddToRefurbishRequest.prototype.setQuantityParent = function(value) {
   return jspb.Message.setProto3FloatField(this, 6, value);
 };
 
 
 /**
- * optional bool is_template = 7;
+ * optional float fixed_bdi = 7;
+ * @return {number}
+ */
+proto.AddToRefurbishRequest.prototype.getFixedBdi = function() {
+  return /** @type {number} */ (jspb.Message.getFloatingPointFieldWithDefault(this, 7, 0.0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.AddToRefurbishRequest} returns this
+ */
+proto.AddToRefurbishRequest.prototype.setFixedBdi = function(value) {
+  return jspb.Message.setProto3FloatField(this, 7, value);
+};
+
+
+/**
+ * optional bool is_template = 8;
  * @return {boolean}
  */
 proto.AddToRefurbishRequest.prototype.getIsTemplate = function() {
-  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 7, false));
+  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 8, false));
 };
 
 
@@ -393,7 +423,7 @@ proto.AddToRefurbishRequest.prototype.getIsTemplate = function() {
  * @return {!proto.AddToRefurbishRequest} returns this
  */
 proto.AddToRefurbishRequest.prototype.setIsTemplate = function(value) {
-  return jspb.Message.setProto3BooleanField(this, 7, value);
+  return jspb.Message.setProto3BooleanField(this, 8, value);
 };
 
 
