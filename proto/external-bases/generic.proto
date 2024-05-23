@@ -11,9 +11,10 @@ message AddToRefurbishRequest {
     int32 id_parent_level = 3;
     string external_base_code = 4;
     int32 id_parent = 5;
-    float quantity_parent = 6;
-    float fixed_bdi = 7;
-    bool is_template = 8;
+    int32 link_id = 6;
+    float quantity_parent = 7;
+    float fixed_bdi = 8;
+    bool is_template = 9;
 }
 
 message AddToLibraryRequest {

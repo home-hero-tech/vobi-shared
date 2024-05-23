@@ -17,6 +17,8 @@ export class AddToRefurbishRequest extends jspb.Message {
     setExternalBaseCode(value: string): AddToRefurbishRequest;
     getIdParent(): number;
     setIdParent(value: number): AddToRefurbishRequest;
+    getLinkId(): number;
+    setLinkId(value: number): AddToRefurbishRequest;
     getQuantityParent(): number;
     setQuantityParent(value: number): AddToRefurbishRequest;
     getFixedBdi(): number;
@@ -41,6 +43,7 @@ export namespace AddToRefurbishRequest {
         idParentLevel: number,
         externalBaseCode: string,
         idParent: number,
+        linkId: number,
         quantityParent: number,
         fixedBdi: number,
         isTemplate: boolean,
